@@ -22,6 +22,8 @@
 #include "scrapers/movie/hotmovies/HotMovies.h"
 #include "scrapers/movie/imdb/ImdbMovie.h"
 #include "scrapers/movie/imdb/ImdbMovieConfiguration.h"
+#include "scrapers/movie/theporndb/ThePornDbMovie.h"
+#include "scrapers/movie/theporndb/ThePornDbMovieConfiguration.h"
 #include "scrapers/movie/tmdb/TmdbMovie.h"
 #include "scrapers/movie/tmdb/TmdbMovieConfiguration.h"
 #include "scrapers/movie/videobuster/VideoBuster.h"
@@ -43,6 +45,7 @@
 #include "ui/scrapers/movie/AdultDvdEmpireConfigurationView.h"
 #include "ui/scrapers/movie/AebnConfigurationView.h"
 #include "ui/scrapers/movie/ImdbMovieConfigurationView.h"
+#include "ui/scrapers/movie/ThePornDbMovieConfigurationView.h"
 #include "ui/scrapers/movie/TmdbMovieConfigurationView.h"
 #include "ui/scrapers/music/UniversalMusicConfigurationView.h"
 #include "ui/scrapers/tv_show/FernsehserienDeConfigurationView.h"
@@ -232,6 +235,16 @@ void ScraperManager::initMovieScrapers()
         hotMovies.m_config = std::move(config);
 
         m_scraperMovies.push_back(std::move(hotMovies));
+    }
+    {
+        ManagedMovieScraper thePornDb;
+        auto config = std::make_unique<ThePornDbMovieConfiguration>(m_settings);
+        config->init();
+        thePornDb.m_scraper = std::make_unique<ThePornDbMovie>(*config, nullptr);
+        thePornDb.m_viewFactory = [tpdbConfig = config.get()]() { return new ThePornDbMovieConfigurationView(*tpdbConfig); };
+        thePornDb.m_config = std::move(config);
+
+        m_scraperMovies.push_back(std::move(thePornDb));
     }
     {
         ManagedMovieScraper ade;
