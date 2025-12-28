@@ -22,7 +22,7 @@ public:
     void setLanguage(const Locale& value) override;
 
 public:
-    ELCH_NODISCARD QString apiKey() const;
+    ELCH_NODISCARD QString apiKey();
     void setApiKey(const QString& value);
 
 signals:
