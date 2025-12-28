@@ -293,6 +293,11 @@ SOURCES += \
     src/scrapers/movie/imdb/ImdbMovie.cpp \
     src/scrapers/movie/imdb/ImdbMovieScrapeJob.cpp \
     src/scrapers/movie/imdb/ImdbMovieSearchJob.cpp \
+    src/scrapers/movie/theporndb/ThePornDbApi.cpp \
+    src/scrapers/movie/theporndb/ThePornDbMovie.cpp \
+    src/scrapers/movie/theporndb/ThePornDbMovieConfiguration.cpp \
+    src/scrapers/movie/theporndb/ThePornDbMovieScrapeJob.cpp \
+    src/scrapers/movie/theporndb/ThePornDbMovieSearchJob.cpp \
     src/scrapers/movie/MovieIdentifier.cpp \
     src/scrapers/movie/MovieMerger.cpp \
     src/scrapers/movie/MovieScrapeJob.cpp \
@@ -445,6 +450,7 @@ SOURCES += \
     src/ui/scrapers/movie/AebnConfigurationView.cpp \
     src/ui/scrapers/movie/AdultDvdEmpireConfigurationView.cpp \
     src/ui/scrapers/movie/ImdbMovieConfigurationView.cpp \
+    src/ui/scrapers/movie/ThePornDbMovieConfigurationView.cpp \
     src/ui/scrapers/movie/TmdbMovieConfigurationView.cpp \
     src/ui/scrapers/music/UniversalMusicConfigurationView.cpp \
     src/ui/scrapers/ScraperManager.cpp \
@@ -699,6 +705,11 @@ HEADERS += Version.h \
     src/scrapers/movie/imdb/ImdbMovie.h \
     src/scrapers/movie/imdb/ImdbMovieScrapeJob.h \
     src/scrapers/movie/imdb/ImdbMovieSearchJob.h \
+    src/scrapers/movie/theporndb/ThePornDbApi.h \
+    src/scrapers/movie/theporndb/ThePornDbMovieConfiguration.h \
+    src/scrapers/movie/theporndb/ThePornDbMovie.h \
+    src/scrapers/movie/theporndb/ThePornDbMovieScrapeJob.h \
+    src/scrapers/movie/theporndb/ThePornDbMovieSearchJob.h \
     src/scrapers/movie/MovieIdentifier.h \
     src/scrapers/movie/MovieMerger.h \
     src/scrapers/movie/MovieScrapeJob.h \
@@ -853,6 +864,7 @@ HEADERS += Version.h \
     src/ui/scrapers/movie/AebnConfigurationView.h \
     src/ui/scrapers/movie/AdultDvdEmpireConfigurationView.h \
     src/ui/scrapers/movie/ImdbMovieConfigurationView.h \
+    src/ui/scrapers/movie/ThePornDbMovieConfigurationView.h \
     src/ui/scrapers/movie/TmdbMovieConfigurationView.h \
     src/ui/scrapers/music/UniversalMusicConfigurationView.h \
     src/ui/scrapers/ScraperManager.h \

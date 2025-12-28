@@ -26,6 +26,7 @@ ThePornDbMovie::ThePornDbMovie(ThePornDbMovieConfiguration& settings, QObject* p
     m_meta.description = tr("ThePornDB provides community curated metadata for adult movies.");
     m_meta.website = "https://theporndb.net";
     m_meta.supportedDetails = m_scraperNativelySupports;
+    m_meta.defaultLocale = m_settings.language();
     m_meta.isAdult = true;
 
     initialize();
