@@ -36,7 +36,7 @@ void ThePornDbMovieConfiguration::setLanguage(const Locale& value)
     settings().setValue(KEY_SCRAPERS_LANGUAGE, value.toString());
 }
 
-QString ThePornDbMovieConfiguration::apiKey() const
+QString ThePornDbMovieConfiguration::apiKey()
 {
     return settings().value(KEY_SCRAPERS_API_KEY).toString();
 }
