@@ -25,6 +25,7 @@ public:
 
 protected:
     ELCH_NODISCARD Settings& settings() { return m_settings; };
+    ELCH_NODISCARD Settings& settings() const { return m_settings; };
 
 private:
     QString m_scraperId;
