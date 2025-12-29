@@ -12,6 +12,7 @@
 #include "media/NameFormatter.h"
 #include "network/NetworkRequest.h"
 #include "scrapers/image/ImageProvider.h"
+#include "scrapers/image/LocalImages.h"
 #include "ui/main/MainWindow.h"
 #include "ui/small_widgets/ImageLabel.h"
 
@@ -791,6 +792,13 @@ void ImageDialog::onSearch(bool onlyFirstResult)
     ui->searchTerm->setLoading(true);
     m_currentProvider = ui->imageProvider->itemData(ui->imageProvider->currentIndex(), DataRole::providerPointer)
                             .value<mediaelch::scraper::ImageProvider*>();
+
+    if (auto* localProvider = dynamic_cast<mediaelch::scraper::LocalImages*>(m_currentProvider)) {
+        localProvider->setCurrentMovie(m_movie);
+        ui->searchTerm->setLoading(false);
+        loadImagesFromProvider({});
+        return;
+    }
 
     if (!initialSearchTerm.isEmpty() && searchTerm == initialSearchTerm && !id.isEmpty()) {
         // search term was not changed and we have an id

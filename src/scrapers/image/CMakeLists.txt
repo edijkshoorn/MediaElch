@@ -3,6 +3,7 @@ add_library(
   FanartTv.cpp
   FanartTvMusic.cpp
   FanartTvMusicArtists.cpp
+  LocalImages.cpp
   ImageProvider.cpp
   TheTvDbImages.cpp
   TmdbImages.cpp
