@@ -24,7 +24,7 @@ QUrl makeApiUrl(const QString& suffix, const QUrlQuery& query)
 namespace mediaelch {
 namespace scraper {
 
-ThePornDbApi::ThePornDbApi(const ThePornDbMovieConfiguration& settings, QObject* parent) :
+ThePornDbApi::ThePornDbApi(ThePornDbMovieConfiguration& settings, QObject* parent) :
     QObject(parent), m_settings(settings)
 {
 }
