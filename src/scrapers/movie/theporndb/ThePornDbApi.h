@@ -21,7 +21,7 @@ public:
     using ApiCallback = std::function<void(QJsonDocument, ScraperError)>;
 
 public:
-    explicit ThePornDbApi(const ThePornDbMovieConfiguration& settings, QObject* parent = nullptr);
+    explicit ThePornDbApi(ThePornDbMovieConfiguration& settings, QObject* parent = nullptr);
     ~ThePornDbApi() override = default;
 
     void initialize();
@@ -36,7 +36,7 @@ private:
     QNetworkRequest makeAuthorizedRequest(const QUrl& url) const;
 
 private:
-    const ThePornDbMovieConfiguration& m_settings;
+    ThePornDbMovieConfiguration& m_settings;
     mediaelch::network::NetworkManager m_network;
     bool m_isInitialized{false};
 };
