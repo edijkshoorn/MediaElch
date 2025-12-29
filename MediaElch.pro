@@ -265,6 +265,7 @@ SOURCES += \
     src/scrapers/image/FanartTv.cpp \
     src/scrapers/image/FanartTvMusicArtists.cpp \
     src/scrapers/image/FanartTvMusic.cpp \
+    src/scrapers/image/LocalImages.cpp \
     src/scrapers/image/ImageProvider.cpp \
     src/scrapers/image/TheTvDbImages.cpp \
     src/scrapers/image/TmdbImages.cpp \
@@ -677,6 +678,7 @@ HEADERS += Version.h \
     src/scrapers/image/FanartTv.h \
     src/scrapers/image/FanartTvMusicArtists.h \
     src/scrapers/image/FanartTvMusic.h \
+    src/scrapers/image/LocalImages.h \
     src/scrapers/image/ImageProvider.h \
     src/scrapers/image/TheTvDbImages.h \
     src/scrapers/image/TmdbImages.h \

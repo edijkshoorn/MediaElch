@@ -9,6 +9,7 @@
 #include "scrapers/image/FanartTvConfiguration.h"
 #include "scrapers/image/FanartTvMusic.h"
 #include "scrapers/image/FanartTvMusicArtists.h"
+#include "scrapers/image/LocalImages.h"
 #include "scrapers/image/TheTvDbImages.h"
 #include "scrapers/image/TheTvDbImagesConfiguration.h"
 #include "scrapers/image/TmdbImages.h"
@@ -432,6 +433,16 @@ void ScraperManager::initMusicScrapers()
 void ScraperManager::initImageProviders()
 {
     using namespace mediaelch::scraper;
+
+    {
+        ManagedImageProvider provider;
+        auto providerConfig = std::make_unique<ScraperConfigurationStub>(LocalImages::ID, m_settings);
+        providerConfig->init();
+        provider.m_scraper = std::make_unique<LocalImages>(nullptr);
+        provider.m_config = std::move(providerConfig);
+
+        m_imageProviders.push_back(std::move(provider));
+    }
 
     {
         ManagedImageProvider provider;
