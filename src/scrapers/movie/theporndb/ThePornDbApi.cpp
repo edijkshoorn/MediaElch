@@ -9,10 +9,12 @@
 #include <QTimer>
 #include <QUrlQuery>
 
+
 namespace {
 
 QUrl makeApiUrl(const QString& suffix, const QUrlQuery& query)
 {
+    // Use the correct API endpoint
     QUrl url(QStringLiteral("https://api.theporndb.net/%1").arg(suffix));
     QUrlQuery fullQuery(query);
     url.setQuery(fullQuery);
@@ -42,7 +44,7 @@ bool ThePornDbApi::isInitialized() const
 void ThePornDbApi::searchMovies(const QString& query, ApiCallback callback)
 {
     QUrlQuery q;
-    q.addQueryItem(QStringLiteral("query"), query);
+    q.addQueryItem(QStringLiteral("parse"), query);
     sendGetRequest(makeApiUrl(QStringLiteral("movies"), q), std::move(callback));
 }
 
@@ -89,7 +91,9 @@ QNetworkRequest ThePornDbApi::makeAuthorizedRequest(const QUrl& url) const
 {
     QNetworkRequest request = mediaelch::network::jsonRequestWithDefaults(url);
     if (!m_settings.apiKey().isEmpty()) {
-        request.setRawHeader("X-API-Key", m_settings.apiKey().toUtf8());
+        // Set Authorization header as Bearer token
+        QByteArray bearer = "Bearer " + m_settings.apiKey().toUtf8();
+        request.setRawHeader("Authorization", bearer);
     }
     return request;
 }
